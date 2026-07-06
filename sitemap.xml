@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================================
+     GV INGENIERÍA — sitemap.xml
+     F11: Sitemap para Google Search Console
+     Reemplazá https://gv-ingenieria.netlify.app/ por tu dominio real
+     cuando lo registres en nic.ar
+     KAHIO Studio · Landing Pro · Fases F1–F12
+     ============================================================ -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Página principal -->
+  <url>
+    <loc>https://gv-ingenieria.netlify.app/</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es-AR" href="https://gv-ingenieria.netlify.app/"/>
+  </url>
+
+  <!-- Secciones internas (anclas) — se listan para referencia -->
+  <!-- Nota: los motores de búsqueda indexan la URL raíz para páginas SPA/anclas -->
+  <url>
+    <loc>https://gv-ingenieria.netlify.app/#servicios</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://gv-ingenieria.netlify.app/#proceso</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://gv-ingenieria.netlify.app/#nosotros</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://gv-ingenieria.netlify.app/#contacto</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+</urlset>

@@ -1,0 +1,17 @@
+# ============================================================
+# GV INGENIERÍA — robots.txt
+# F11: Instrucciones para rastreadores web
+# KAHIO Studio · Landing Pro · Fases F1–F12
+# ============================================================
+
+User-agent: *
+Allow: /
+
+# Bloquear archivos internos innecesarios para el índice
+Disallow: /assets/js/
+Disallow: /.htaccess
+Disallow: /_headers
+Disallow: /_redirects
+
+# Sitemap — reemplazá con tu dominio real cuando lo tengas
+Sitemap: https://gv-ingenieria.netlify.app/sitemap.xml
