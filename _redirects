@@ -1,0 +1,16 @@
+# ============================================================
+# GV INGENIERÍA — _redirects (Netlify)
+# F8: Redireccionamientos HTTPS y www
+# KAHIO Studio · Landing Pro · Fases F1–F12
+# ============================================================
+
+# Redirigir HTTP → HTTPS (Netlify lo hace automáticamente en producción,
+# pero se deja documentado como referencia)
+# http://gv-ingenieria.netlify.app/* https://gv-ingenieria.netlify.app/:splat 301!
+
+# Redirigir www → sin www (si usás dominio propio)
+# http://www.tudominio.com.ar/* https://tudominio.com.ar/:splat 301!
+# https://www.tudominio.com.ar/* https://tudominio.com.ar/:splat 301!
+
+# Fallback SPA (no aplica a este proyecto estático, pero se incluye por si se agrega routing)
+# /*  /index.html  200
