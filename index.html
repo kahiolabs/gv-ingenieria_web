@@ -99,11 +99,12 @@
 </script>
 
 <!-- F2 — Google Fonts -->
+<link rel="preload" as="image" href="assets/img/hero1.webp" type="image/webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- Carga no bloqueante: mantiene la fuente de respaldo hasta descargar Google Fonts. -->
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap"></noscript>
+<!-- Carga no bloqueante sin reemplazo tardío de tipografía: evita CLS con red lenta. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap">
 
 <!-- F3 — CSS externo -->
 <!-- Carga no bloqueante para retirar styles.css de la ruta crítica. -->
