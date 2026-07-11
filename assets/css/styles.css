@@ -258,9 +258,18 @@ section { position: relative; z-index: 1; padding: 100px 5%; border-bottom: 1px 
   color: var(--texto); font-family: 'IBM Plex Sans', sans-serif; font-size: 0.9rem;
   padding: 12px 14px; outline: none; transition: border-color 0.2s;
   appearance: none; border-radius: 0;
+  box-sizing: border-box; /* <- Agregado: asegura que el padding no estire el tamaño real */
 }
 .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--oro); }
-.form-group textarea { height: 100px; resize: vertical; }
+
+/* --- AQUÍ MODIFICAMOS EL TEXTAREA --- */
+.form-group textarea { 
+  min-height: 100px; 
+  height: 100px; 
+  resize: vertical; 
+  display: block; /* <- Agregado: evita espacios vacíos fantasmas abajo del cuadro */
+}
+
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 
 .form-group input.campo-error,
@@ -269,8 +278,26 @@ section { position: relative; z-index: 1; padding: 100px 5%; border-bottom: 1px 
 .form-group input.campo-ok,
 .form-group select.campo-ok { border-color: var(--ok); }
 
-.form-error-msg { display: none; font-size: 0.72rem; color: var(--error); letter-spacing: 0.5px; margin-top: 5px; font-weight: 500; }
-.form-error-msg.visible { display: block; }
+/* --- AQUÍ OPTIMIZAMOS LOS MENSAJES DE ERROR --- */
+.form-error-msg { 
+  opacity: 0;
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
+  font-size: 0.72rem; 
+  color: var(--error); 
+  letter-spacing: 0.5px; 
+  margin-top: 0; 
+  font-weight: 500; 
+  transition: opacity 0.2s, height 0.2s, margin-top 0.2s; /* Hace que si aparece, sea una transición suave y no un golpe */
+}
+
+.form-error-msg.visible { 
+  opacity: 1;
+  visibility: visible;
+  height: auto;
+  margin-top: 5px;
+}
 
 /* Tabs */
 .form-tabs { display: flex; margin-bottom: 1.8rem; border: 1px solid var(--gris-borde); }
