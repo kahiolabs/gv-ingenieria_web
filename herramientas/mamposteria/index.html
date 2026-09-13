@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Mampostería — GV Ingeniería (MP4513)</title>
+  <meta name="description" content="Calculá la cantidad exacta de ladrillos cerámicos, comunes o bloques y mortero de asiento para tus paredes en Corrientes y NEA.">
+  <link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body>
+
+  <header class="calc-header">
+    <div class="calc-header-nav">
+      <a href="../index.html" class="calc-brand">
+        <span class="calc-brand-text">GV <span>INGENIERÍA</span></span>
+      </a>
+      <a href="../index.html" class="back-link">
+        <span>🧮</span> Ver Todas las Calculadoras
+      </a>
+    </div>
+  </header>
+
+  <main class="calc-container">
+    <div class="calc-title-box">
+      <span class="calc-tag">Herramienta Técnica Gratuita</span>
+      <h1 class="calc-title">Calculadora de Mampostería</h1>
+      <p class="calc-subtitle">Ingresá las medidas de tus muros para calcular al instante la cantidad de ladrillos y los materiales para el mortero de asiento (cemento, cal e hidrófugo/arena).</p>
+    </div>
+
+    <div class="calc-grid">
+      
+      <section class="calc-card-input">
+        <h2 class="calc-card-title">
+          <span>🧱</span> Dimensiones del Muro
+        </h2>
+
+        <div class="form-group">
+          <label for="tipoLadrilloSelect" class="form-label">Tipo de Mampuesto / Ladrillo</label>
+          <select id="tipoLadrilloSelect" class="form-select">
+            <option value="h12" selected>Ladrillo Cerámico Hueco 12x18x33 cm (Muro 15cm)</option>
+            <option value="h18">Ladrillo Cerámico Hueco 18x18x33 cm (Muro 20cm)</option>
+            <option value="h8">Ladrillo Cerámico Hueco 8x18x33 cm (Tabique 10cm)</option>
+            <option value="comun15">Ladrillo Común de Campo (Muro 15cm)</option>
+            <option value="comun30">Ladrillo Común de Campo (Muro 30cm)</option>
+            <option value="bloqueHormigon">Bloque de Hormigón 19x19x39 cm</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="largoInput" class="form-label">Largo del Muro <span>*</span></label>
+          <div class="input-wrapper">
+            <input type="number" id="largoInput" class="form-input has-unit" value="10.00" step="0.5" min="0.1">
+            <span class="input-unit">m</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="altoInput" class="form-label">Alto del Muro <span>*</span></label>
+          <div class="input-wrapper">
+            <input type="number" id="altoInput" class="form-input has-unit" value="2.60" step="0.1" min="0.1">
+            <span class="input-unit">m</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="descuentoInput" class="form-label">Descuento Aberturas (Puertas y Ventanas)</label>
+          <div class="input-wrapper">
+            <input type="number" id="descuentoInput" class="form-input has-unit" value="3.00" step="0.5" min="0">
+            <span class="input-unit">m²</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="desperdicioInput" class="form-label">Margen de Desperdicio / Roturas</label>
+          <div class="input-wrapper">
+            <input type="number" id="desperdicioInput" class="form-input has-unit" value="8" step="1" min="0" max="25">
+            <span class="input-unit">%</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="calc-card-display">
+        <div class="display-header">
+          <h2 class="calc-card-title" style="margin-bottom:0; border-bottom:none; padding-bottom:0; color:var(--blanco);">
+            <span>📦</span> Cómputo de Materiales
+          </h2>
+          <span class="display-badge">Live Display</span>
+        </div>
+
+        <div class="display-main-box">
+          <div class="display-main-label">Cantidad Total de Ladrillos</div>
+          <div class="display-main-value">
+            <span id="displayTotalLadrillos">396</span>
+            <span class="display-main-unit">unid.</span>
+          </div>
+          <div style="font-size: 0.82rem; color: var(--texto-muted); margin-top: 4px;">
+            (Superficie neta de muro: <strong id="displaySuperficieNeta" style="color:var(--texto);">23.00</strong> m²)
+          </div>
+        </div>
+
+        <div class="display-results-grid">
+          <div class="result-item">
+            <div class="result-item-label">Cemento (Bolsas 50kg)</div>
+            <div class="result-item-value">
+              <span id="displayBolsasCemento">2</span>
+              <span class="result-item-unit">bolsas</span>
+            </div>
+          </div>
+          <div class="result-item">
+            <div class="result-item-label">Cal de Asiento (Bolsas 25kg)</div>
+            <div class="result-item-value">
+              <span id="displayBolsasCal">3</span>
+              <span class="result-item-unit">bolsas</span>
+            </div>
+          </div>
+          <div class="result-item" style="grid-column: span 2;">
+            <div class="result-item-label">Arena Gruesa Estimada</div>
+            <div class="result-item-value">
+              <span id="displayArenaM3">0.35</span>
+              <span class="result-item-unit">m³</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="calc-disclaimer">
+          ⚠️ <strong>Nota:</strong> Los valores corresponden al mortero de asiento estándar (1:1:5 o 1:1/2:4). No incluye el volumen necesario para revoques grueso y fino.
+        </div>
+
+        <a id="btnWhatsApp" href="#" target="_blank" rel="noopener noreferrer" class="btn-wa-cta">
+          <svg viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-1.156 4.223 4.223-1.156z"/>
+          </svg>
+          Consultar por Mampostería
+        </a>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="calc-footer">
+    <p>GV INGENIERÍA — Ing. Civil Gastón Vidal (MP4513) · Corrientes, NEA — Argentina</p>
+  </footer>
+
+  <script src="../shared/config.js"></script>
+  <script src="../shared/utils.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

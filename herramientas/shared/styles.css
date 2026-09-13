@@ -1,0 +1,418 @@
+/* ============================================================
+   GV INGENIERÍA — Sistema de Estilos Compartido para Calculadoras
+   Desarrollado con paleta oficial oro/negro e interfaz reactiva
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --negro: #0d0d0d;
+  --carbon: #111111;
+  --gris-oscuro: #1a1a1a;
+  --gris-medio: #252525;
+  --gris-borde: #2e2e2e;
+  --oro: #c9a84c;
+  --oro-claro: #e2c07a;
+  --oro-hover: #d4b05e;
+  --oro-glow: rgba(201, 168, 76, 0.15);
+  --texto: #e0dbd0;
+  --texto-muted: #7a7468;
+  --blanco: #f2ede0;
+  --error: #c0392b;
+  --ok: #27ae60;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  --transicion: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  background-color: var(--negro);
+  color: var(--texto);
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Fondo decorativo con trama sutil */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23c9a84c' fill-opacity='0.02'%3E%3Cpath d='M0 0h40v40H0zM40 40h40v40H40z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--oro);
+  outline-offset: 3px;
+}
+
+/* Header de Navegación del Módulo */
+.calc-header {
+  position: relative;
+  z-index: 10;
+  background-color: rgba(17, 17, 17, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--gris-borde);
+  padding: 16px 24px;
+}
+
+.calc-header-nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calc-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--blanco);
+}
+
+.calc-brand img {
+  height: 36px;
+  width: auto;
+}
+
+.calc-brand-text {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  color: var(--blanco);
+}
+
+.calc-brand-text span {
+  color: var(--oro);
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--gris-oscuro);
+  color: var(--oro-claro);
+  border: 1px solid var(--oro);
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: var(--transicion);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.back-link:hover {
+  background-color: var(--oro);
+  color: var(--negro);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(201, 168, 76, 0.35);
+}
+
+/* Layout Principal */
+.calc-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
+  width: 100%;
+  flex: 1;
+}
+
+.calc-title-box {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.calc-tag {
+  display: inline-block;
+  background: rgba(201, 168, 76, 0.1);
+  color: var(--oro);
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.calc-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.8rem;
+  color: var(--blanco);
+  line-height: 1.1;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.calc-subtitle {
+  color: var(--texto-muted);
+  max-width: 650px;
+  margin: 0 auto;
+  font-size: 1rem;
+}
+
+/* Grid de Calculadora: Formulario + Live Display */
+.calc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+@media (max-width: 860px) {
+  .calc-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Card de Entradas / Formulario */
+.calc-card-input {
+  background-color: var(--carbon);
+  border: 1px solid var(--gris-borde);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow);
+}
+
+.calc-card-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  color: var(--oro);
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid var(--gris-borde);
+  padding-bottom: 10px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group:last-child {
+  margin-bottom: 0;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--texto);
+  margin-bottom: 6px;
+}
+
+.form-label span {
+  color: var(--oro);
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.form-input, .form-select {
+  width: 100%;
+  background-color: var(--gris-oscuro);
+  border: 1px solid var(--gris-borde);
+  border-radius: var(--radius-sm);
+  color: var(--blanco);
+  font-family: inherit;
+  font-size: 1.05rem;
+  padding: 12px 14px;
+  transition: var(--transicion);
+}
+
+.form-input:focus, .form-select:focus {
+  border-color: var(--oro);
+  background-color: var(--gris-medio);
+  box-shadow: 0 0 0 3px var(--oro-glow);
+  outline: none;
+}
+
+.input-unit {
+  position: absolute;
+  right: 14px;
+  color: var(--texto-muted);
+  font-weight: 600;
+  font-size: 0.9rem;
+  pointer-events: none;
+}
+
+.has-unit {
+  padding-right: 48px;
+}
+
+.form-help {
+  font-size: 0.8rem;
+  color: var(--texto-muted);
+  margin-top: 4px;
+}
+
+/* LIVE DISPLAY - Pantalla de Resultados en Tiempo Real */
+.calc-card-display {
+  background: linear-gradient(145deg, #161616 0%, #111111 100%);
+  border: 1px solid var(--oro);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: 0 0 25px rgba(201, 168, 76, 0.12), var(--shadow);
+  position: sticky;
+  top: 90px;
+}
+
+.display-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+}
+
+.display-badge {
+  background: var(--oro);
+  color: var(--negro);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+}
+
+.display-main-box {
+  background: var(--negro);
+  border: 1px solid var(--gris-borde);
+  border-radius: var(--radius-sm);
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.display-main-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--texto-muted);
+  margin-bottom: 4px;
+}
+
+.display-main-value {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3.2rem;
+  color: var(--oro-claro);
+  line-height: 1;
+  transition: var(--transicion);
+}
+
+.display-main-unit {
+  font-size: 1.2rem;
+  color: var(--oro);
+  margin-left: 4px;
+}
+
+/* Grilla de Resultados Secundarios */
+.display-results-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.result-item {
+  background: var(--gris-oscuro);
+  border: 1px solid var(--gris-borde);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+}
+
+.result-item-label {
+  font-size: 0.78rem;
+  color: var(--texto-muted);
+  margin-bottom: 2px;
+}
+
+.result-item-value {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--blanco);
+}
+
+.result-item-unit {
+  font-size: 0.85rem;
+  color: var(--oro);
+  font-weight: 400;
+}
+
+/* Aviso de Deslinde Técnico */
+.calc-disclaimer {
+  background-color: rgba(255, 255, 255, 0.02);
+  border-left: 3px solid var(--oro);
+  padding: 12px 14px;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-size: 0.82rem;
+  color: var(--texto-muted);
+  margin-bottom: 24px;
+  line-height: 1.4;
+}
+
+/* Botón CTA de WhatsApp */
+.btn-wa-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  background: linear-gradient(135deg, var(--oro) 0%, var(--oro-hover) 100%);
+  color: var(--negro);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 14px 20px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: var(--transicion);
+  box-shadow: 0 4px 15px rgba(201, 168, 76, 0.25);
+}
+
+.btn-wa-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(201, 168, 76, 0.4);
+  background: var(--oro-claro);
+}
+
+.btn-wa-cta svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+/* Footer del Módulo */
+.calc-footer {
+  border-top: 1px solid var(--gris-borde);
+  padding: 24px;
+  text-align: center;
+  color: var(--texto-muted);
+  font-size: 0.85rem;
+  margin-top: 60px;
+  background-color: var(--carbon);
+}

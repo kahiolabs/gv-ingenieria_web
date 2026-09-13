@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GV Ingeniería — Calculadoras y Herramientas Técnicas de Obra</title>
+  <link rel="stylesheet" href="shared/styles.css">
+  <style>
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-top: 30px;
+    }
+    .tool-card {
+      background: var(--carbon);
+      border: 1px solid var(--gris-borde);
+      border-radius: var(--radius);
+      padding: 24px;
+      transition: var(--transicion);
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+    }
+    .tool-card:hover {
+      border-color: var(--oro);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(201, 168, 76, 0.15);
+    }
+    .tool-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--gris-oscuro);
+      border: 1px solid var(--oro);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--oro);
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+    }
+    .tool-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      color: var(--blanco);
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+    .tool-desc {
+      font-size: 0.9rem;
+      color: var(--texto-muted);
+      flex: 1;
+      margin-bottom: 16px;
+    }
+    .tool-badge {
+      display: inline-block;
+      align-self: flex-start;
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+    }
+    .badge-active {
+      background: rgba(39, 174, 96, 0.15);
+      color: var(--ok);
+      border: 1px solid var(--ok);
+    }
+  </style>
+</head>
+<body>
+
+  <header class="calc-header">
+    <div class="calc-header-nav">
+      <a href="../index.html" class="calc-brand">
+        <span class="calc-brand-text">GV <span>INGENIERÍA</span></span>
+      </a>
+      <a href="../index.html" class="back-link">
+        <span>🌐</span> Ir a la Web Principal
+      </a>
+    </div>
+  </header>
+
+  <main class="calc-container">
+    <div class="calc-title-box">
+      <span class="calc-tag">Entorno de Pruebas Aislado</span>
+      <h1 class="calc-title">Calculadoras Técnicas de Obra</h1>
+      <p class="calc-subtitle">Herramientas profesionales desarrolladas para GV Ingeniería (Ing. Civil Gastón Vidal - MP4513). Selección de utilidades para estimación y cómputo de materiales en tiempo real.</p>
+    </div>
+
+    <div class="tools-grid">
+
+      <!-- Calculadora 1: Hormigón -->
+      <a href="hormigon/index.html" class="tool-card">
+        <div class="tool-icon">🏗️</div>
+        <h2 class="tool-title">Calculadora de Hormigón</h2>
+        <p class="tool-desc">Calculá volumen en m³ y dosificación exacta de cemento, arena, piedra y agua para hormigones H17, H21 y H25 en tiempo real.</p>
+        <span class="tool-badge badge-active">✔ Listo para Validar</span>
+      </a>
+
+      <!-- Calculadora 2: Costo de Construcción -->
+      <a href="costo-construccion/index.html" class="tool-card">
+        <div class="tool-icon">📊</div>
+        <h2 class="tool-title">Costo de Construcción</h2>
+        <p class="tool-desc">Estimación paramétrica de inversión por m² según tipo de edificación y calidad de terminación.</p>
+        <span class="tool-badge badge-active">✔ Listo para Validar</span>
+      </a>
+
+      <!-- Calculadora 3: Mampostería -->
+      <a href="mamposteria/index.html" class="tool-card">
+        <div class="tool-icon">🧱</div>
+        <h2 class="tool-title">Calculadora de Mampostería</h2>
+        <p class="tool-desc">Cómputo de ladrillos cerámicos (12, 18, 8), comunes de campo o bloques y mortero de asiento por m² de muro.</p>
+        <span class="tool-badge badge-active">✔ Listo para Validar</span>
+      </a>
+
+      <!-- Calculadora 4: Pintura -->
+      <a href="pintura/index.html" class="tool-card">
+        <div class="tool-icon">🎨</div>
+        <h2 class="tool-title">Calculadora de Pintura</h2>
+        <p class="tool-desc">Cálculo de litros y recomendación de latas de 20L y 4L según superficie, manos y rendimiento por producto.</p>
+        <span class="tool-badge badge-active">✔ Listo para Validar</span>
+      </a>
+
+      <!-- Calculadora 5: Techos y Cubiertas -->
+      <a href="techo/index.html" class="tool-card">
+        <div class="tool-icon">🏠</div>
+        <h2 class="tool-title">Techos y Cubiertas</h2>
+        <p class="tool-desc">Superficie real inclinada según pendiente (1 o 2 aguas), metros de chapa, tejas y aislación térmica/hidrófuga.</p>
+        <span class="tool-badge badge-active">✔ Listo para Validar</span>
+      </a>
+
+      <!-- Calculadora 6: Escaleras -->
+      <a href="escalera/index.html" class="tool-card">
+        <div class="tool-icon">🪜</div>
+        <h2 class="tool-title">Escaleras (Ley de Blondel)</h2>
+        <p class="tool-desc">Cálculo ergonómico de huella, contrahuella real, desarrollo horizontal en planta y ángulo de inclinación.</p>
+        <span class="tool-badge badge-active">✔ Listo para Validar</span>
+      </a>
+
+    </div>
+  </main>
+
+  <footer class="calc-footer">
+    <p>GV INGENIERÍA — Ing. Civil Gastón Vidal (MP4513) · Corrientes, NEA — Argentina</p>
+  </footer>
+
+</body>
+</html>
